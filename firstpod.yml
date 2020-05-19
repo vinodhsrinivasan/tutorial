@@ -1,0 +1,21 @@
+---
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: hello-rc
+spec:
+  replicas: 20
+  #number of replicas generated
+  selector:
+    #assigns labels to the pods for future selection
+    app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-pod
+        image: nigelpoulton/pluralsight-docker-ci:latest
+        ports:
+        - containerPort: 8080
