@@ -2,6 +2,15 @@
 ```
 all tutorial information
 ```
+## Kube
+```
+vinodhsrini -docker
+Docker / Kube 192.168.64.2
+hyperkit driver - start Minikube with this driver
+Https://github.com/nigelpoulton/psweb/blob/master/Dockerfile
+kubectl run discovery –image=myib-spring-boot-app –image-pull-policy=Never –port=8761
+kubectl run discovery –-image=mycore –image-pull-policy=Never –port=8762
+```
 
 ### Dotnet core:
 ```
