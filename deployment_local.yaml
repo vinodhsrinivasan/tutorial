@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: jib-spring-boot-app
+  name: jib-spring-boot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jib-spring-boot-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: jib-spring-boot-app
+    spec:
+      containers:
+      - image: myib-spring-boot-app
+        imagePullPolicy: Never
+        name: jib-spring-boot-app
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: jib-spring-boot-app
+  name: jib-spring-boot-app
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    nodePort: 30012
+  selector:
+    app: jib-spring-boot-app
+  type: NodePort
+status:
+  loadBalancer: {}

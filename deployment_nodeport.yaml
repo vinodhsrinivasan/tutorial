@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo2
+  name: demo2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo2
+    spec:
+      containers:
+      - image: myimage
+        imagePullPolicy: IfNotPresent
+        command: [ "echo", "SUCCESS" ]
+        name: demo2
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo2
+  name: demo2
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    nodePort: 30011
+  selector:
+    app: demo2
+  type: NodePort
+status:
+  loadBalancer: {}

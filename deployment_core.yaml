@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mycore
+  name: mycore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mycore
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mycore
+    spec:
+      containers:
+      - image: vinodhsrini/mycore
+        name: mycore
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mycore
+  name: mycore
+spec:
+  ports:
+  - name: 8080-8081
+    port: 80
+    protocol: TCP
+    nodePort: 30014
+  selector:
+    app: mycore
+  type: NodePort
+status:
+  loadBalancer: {}
