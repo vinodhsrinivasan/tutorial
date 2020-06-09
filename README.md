@@ -31,3 +31,29 @@ dotnet publish
 docker build . -t vinodhsrini/mycore
 kubectl apply -f deployment_core.yaml
 ```
+ 
+## Docker
+```
+docker save mycore >mycore.tar
+docker save mcr.microsoft.com/dotnet/core/aspnet > aspnet_3.1.tar
+mcr.microsoft.com/dotnet/core/aspnet       3.1                 bc877ac43e02        2 weeks ago         207MB
+```
+## Large files
+```
+mcr.microsoft.com/dotnet/core/aspnet       3.1                 bc877ac43e02        2 weeks ago         207MB
+brew install git-lfs
+git init
+git remote add origin https://github.com/vinodhsrinivasan/k8ssample.git
+git pull https://github.com/vinodhsrinivasan/k8ssample.git
+git config --global user.email kumarsvinodh@gmail.com
+git config --global user.name "Vinodh Srinivasan"
+git lfs install
+git lfs track '*.tar'
+git pull
+git add .
+git commit -m "default commit"
+git lfs push --all origin master
+git push -u origin master
+```
+
+
