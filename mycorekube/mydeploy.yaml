@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selvam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selvam
+  template:
+    metadata:
+      labels:
+        app: selvam
+    spec:
+      containers:
+        - image: "vinodhsrini/mycore"
+          imagePullPolicy: Always
+          name: selvam
+          ports:
+            - containerPort: 80

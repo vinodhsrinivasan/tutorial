@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: madhan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: madhan
+  template:
+    metadata:
+      labels:
+        app: madhan
+    spec:
+      containers:
+        - image: "vinodhsrini/mycore"
+          imagePullPolicy: Always
+          name: madhan
+          ports:
+            - containerPort: 80
