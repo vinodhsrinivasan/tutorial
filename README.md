@@ -30,6 +30,7 @@ dotnet restore
 dotnet publish
 docker build . -t vinodhsrini/mycore
 kubectl apply -f deployment_core.yaml
+https://docs.docker.com/engine/examples/dotnetcore/
 ```
  
 ## Docker
